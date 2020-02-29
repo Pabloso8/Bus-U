@@ -14,6 +14,7 @@ const { width } = Dimensions.get('screen');
 const iphoneImage = require('../../assets/iphone.png');
 
 const Presentation = props => (
+  
   <Block flex>
     <StatusBar hidden={false} barStyle="light-content" />
     <Block style={styles.navbar}>
@@ -48,7 +49,8 @@ const Presentation = props => (
       </Block>
     </Block>
   </Block>
-);
+  
+  );
 
 const styles = StyleSheet.create({
   backgroundGradient: {
