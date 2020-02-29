@@ -11,11 +11,11 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon2.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/bus-u.png",
       "resizeMode": "cover",
-      "backgroundColor": "#FE2472"
+      "backgroundColor": "#FF830D"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

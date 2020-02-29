@@ -21,6 +21,10 @@ import Dashboard from './src/screens/Dashboard';
 import Register from './src/screens/Register';
 import Registerv2 from './src/screens/Registerv2';
 import Grid from './src/screens/Grid';
+import RegisterConfirmCode from './src/screens/RegisterConfirmCode.js';
+import ForgotPass from './src/screens/FortgortPass';
+import ForgotPassConfirmCode from './src/screens/ForgotPassConfirmCode';
+
 
 import theme from './src/theme';
 import { Block, Icon, Text } from 'galio-framework';
@@ -85,9 +89,30 @@ MenuIcon.propTypes = {
 
 const screens = {
   Home: {
-    screen: Components,
+    screen: Login,
     navigationOptions: {
       drawerLabel: 'Components',
+      drawerIcon: props => <MenuIcon name="flag" family="font-awesome" focused={props.focused} />,
+    },
+  },
+  ForgotPass: {
+    screen: ForgotPass,
+    navigationOptions: {
+      drawerLabel: 'ForgotPass',
+      drawerIcon: props => <MenuIcon name="flag" family="font-awesome" focused={props.focused} />,
+    },
+  },
+  ForgotPassConfirmCode: {
+    screen: ForgotPassConfirmCode,
+    navigationOptions: {
+      drawerLabel: 'ForgoPassConfirmCode',
+      drawerIcon: props => <MenuIcon name="flag" family="font-awesome" focused={props.focused} />,
+    },
+  },
+  RegisterConfirmCode: {
+    screen: RegisterConfirmCode,
+    navigationOptions: {
+      drawerLabel: 'RegisterConfirmCode',
       drawerIcon: props => <MenuIcon name="flag" family="font-awesome" focused={props.focused} />,
     },
   },

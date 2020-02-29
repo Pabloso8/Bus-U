@@ -34,7 +34,7 @@ class Register extends React.Component {
     return (
       <Block safe flex style={{ backgroundColor: theme.COLORS.WHITE }}>
         <NavBar
-          title="Sign Up"
+          title="Recover you Password"
           onLeftPress={() => navigation.openDrawer()}
           style={Platform.OS === 'android' ? { marginTop: theme.SIZES.BASE } : null}
           />
@@ -44,13 +44,7 @@ class Register extends React.Component {
 
           <Block flex={2} center space="evenly">
             <Block flex={2}>
-              <Input
-                rounded
-                placeholder="Name"
-                autoCapitalize="none"
-                style={{ width: width * 0.9 }}
-                onChangeText={text => this.handleChange('name', text)}
-              />
+              
               <Input
                 rounded
                 type="email-address"
@@ -58,22 +52,6 @@ class Register extends React.Component {
                 autoCapitalize="none"
                 style={{ width: width * 0.9 }}
                 onChangeText={text => this.handleChange('email', text)}
-              />
-              <Input
-                rounded
-                password
-                viewPass
-                placeholder="Password"
-                style={{ width: width * 0.9 }}
-                onChangeText={text => this.handleChange('password', text)}
-              />
-              <Input
-                rounded
-                password
-                viewPass
-                placeholder="Confirm Password"
-                style={{ width: width * 0.9 }}
-                onChangeText={text => this.handleChange('confirmpass', text)}
               />
             </Block>
             <Block flex middle>
@@ -89,14 +67,14 @@ class Register extends React.Component {
 // Email: ${email}
 // Password: ${password}`,
 //                 );
-navigation.navigate('RegisterConfirmCode');
+navigation.navigate('ForgotPassConfirmCode');
               }}
               >
-                Sign up
+                Recover Pass
               </Button>
               <Button color="transparent" shadowless onPress={() => navigation.navigate('Login')}>
                 <Text center color={theme.COLORS.WARNING} size={theme.SIZES.FONT * 0.75}>
-                  Already have an account? Sign In
+                  Go Back to Log In.
                 </Text>
               </Button>
             </Block>

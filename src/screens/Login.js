@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  Alert, Dimensions, KeyboardAvoidingView, StyleSheet, Platform,
+  Alert, Dimensions, KeyboardAvoidingView, StyleSheet, Platform,Image
 } from 'react-native';
 
 // galio component
 import {
-  Block, Button, Input, NavBar, Text,
+  Block, Button, Input, NavBar, Text
 } from 'galio-framework';
 import theme from '../theme';
 
@@ -15,6 +15,7 @@ class Login extends React.Component {
   state = {
     email: '-',
     password: '-',
+    casoAlterno:""
   }
 
   handleChange = (name, value) => {
@@ -23,7 +24,7 @@ class Login extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    const { email, password } = this.state;
+    const { email, password,casoAlterno} = this.state;
 
     return (
       <Block safe flex style={{ backgroundColor: theme.COLORS.WHITE }}>
@@ -34,59 +35,18 @@ class Login extends React.Component {
         />
         <KeyboardAvoidingView style={styles.container} behavior="height" enabled>
           <Block flex center style={{ marginTop: theme.SIZES.BASE * 1.875, marginBottom: height * 0.1 }}>
-            <Text muted center size={theme.SIZES.FONT * 0.875} style={{ paddingHorizontal: theme.SIZES.BASE * 2.3 }}>
-              This is the perfect place to write a short description
-              of this step and even the next steps ahead
-            </Text>
+            
             <Block row center space="between" style={{ marginVertical: theme.SIZES.BASE * 1.875 }}>
-              <Block flex middle right>
-                <Button
-                  round
-                  onlyIcon
-                  iconSize={theme.SIZES.BASE * 1.625}
-                  icon="facebook"
-                  iconFamily="FontAwesome"
-                  color={theme.COLORS.FACEBOOK}
-                  shadowColor={theme.COLORS.FACEBOOK}
-                  iconColor={theme.COLORS.WHITE}
-                  style={styles.social}
-                  onPress={() => Alert.alert('Not implemented')}
-                />
-              </Block>
+             
               <Block flex middle center>
-                <Button
-                  round
-                  onlyIcon
-                  iconSize={theme.SIZES.BASE * 1.625}
-                  icon="twitter"
-                  iconFamily="FontAwesome"
-                  color={theme.COLORS.TWITTER}
-                  shadowColor={theme.COLORS.TWITTER}
-                  iconColor={theme.COLORS.WHITE}
-                  style={styles.social}
-                  onPress={() => Alert.alert('Not implemented')}
+                <Image
+                source={require('../../assets/icon2.png')}
+                
+                style={{width: 100, height:100 , resizeMode: 'stretch'}}
                 />
-              </Block>
-              <Block flex middle left>
-                <Button
-                  round
-                  onlyIcon
-                  iconSize={theme.SIZES.BASE * 1.625}
-                  icon="dribbble"
-                  iconFamily="FontAwesome"
-                  color={theme.COLORS.DRIBBBLE}
-                  shadowColor={theme.COLORS.DRIBBBLE}
-                  iconColor={theme.COLORS.WHITE}
-                  style={styles.social}
-                  onPress={() => Alert.alert('Not implemented')}
-                />
-              </Block>
+              </Block>  
             </Block>
-            <Text muted center size={theme.SIZES.FONT * 0.875}>
-              or be classical
-            </Text>
           </Block>
-
           <Block flex={2} center space="evenly">
             <Block flex={2}>
               <Input
@@ -95,7 +55,8 @@ class Login extends React.Component {
                 placeholder="Email"
                 autoCapitalize="none"
                 style={{ width: width * 0.9 }}
-                onChangeText={text => this.handleChange('email', text)}
+                onChangeText={text => {this.handleChange('email', text) 
+              }}
               />
               <Input
                 rounded
@@ -103,12 +64,13 @@ class Login extends React.Component {
                 viewPass
                 placeholder="Password"
                 style={{ width: width * 0.9 }}
-                onChangeText={text => this.handleChange('password', text)}
+                onChangeText={text => {this.handleChange('password', text);
+              }}
               />
               <Text
-                color={theme.COLORS.ERROR}
+                color={theme.COLORS.WARNING}
                 size={theme.SIZES.FONT * 0.75}
-                onPress={() => Alert.alert('Not implemented')}
+                onPress={() => navigation.navigate('ForgotPass')}
                 style={{ alignSelf: 'flex-end', lineHeight: theme.SIZES.FONT * 2 }}
               >
                 Forgot your password?
@@ -117,17 +79,18 @@ class Login extends React.Component {
             <Block flex middle>
               <Button
                 round
-                color="error"
-                onPress={() => Alert.alert(
+                color="warning"
+                onPress={() =>{ Alert.alert(
                   'Sign in action',
-                  `Email: ${email}
-Password: ${password}`,
-                )}
+                  `Email: ${email} Pass: ${password}`
+                );
+                this.handleChange('casoAlterno', "Try again ...");
+              }}
               >
                 Sign in
               </Button>
               <Button color="transparent" shadowless onPress={() => navigation.navigate('Register')}>
-                <Text center color={theme.COLORS.ERROR} size={theme.SIZES.FONT * 0.75}>
+                <Text center color={theme.COLORS.WARNING} size={theme.SIZES.FONT * 0.75}>
                   {"Don't have an account? Sign Up"}
                 </Text>
               </Button>
@@ -140,6 +103,7 @@ Password: ${password}`,
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     alignItems: 'center',
