@@ -10,9 +10,6 @@ const pool = new Pool({
 });
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/db', async (req, res) => {
     try {
@@ -26,5 +23,4 @@ express()
       res.send("Error " + err);
     }
   })
-  .get('/cool', (req, res) => res.send(cool()))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
