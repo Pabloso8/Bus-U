@@ -73,7 +73,7 @@ class Login extends React.Component {
                 onPress={() => navigation.navigate('ForgotPass')}
                 style={{ alignSelf: 'flex-end', lineHeight: theme.SIZES.FONT * 2 }}
               >
-                Forgot your password?
+                Forgot your password?????
               </Text>
             </Block>
             <Block flex middle>
